@@ -1,0 +1,217 @@
+/*
+  - Button at fixed position which triggers the info section overlay
+  - Info section overlay
+*/
+
+.section.info {
+  position: fixed;
+  min-width: 4rem;
+  min-height: 4rem;
+  right: 6rem;
+  bottom: 6rem;
+  z-index: 11;
+
+  @media only screen and (max-width: $media-medium) {
+    right: 2rem;
+    bottom: 2rem;
+  }
+
+  @media only screen and (max-width: $media-tiny) {
+    right: 1rem;
+    bottom: 1rem;
+  }
+
+  // Info wrapper which holds the content container
+  & .info__message {
+    display: inline-block;
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 9;
+    width: 80rem;
+    // max-width: 90vw;
+    clip-path: ellipse(0 0 at 97% 97%);
+    transition: all 0.4s cubic-bezier(0.54, -0.08, 0.78, 1.06);
+    background: $color-shadow;
+    box-shadow: -1rem 2rem 6rem -2rem rgba($color-shadow, 0.3);
+    border-radius: 50% 70% 1rem 70%;
+    color: var(--color-white);
+    padding: $padding-giga;
+
+    @supports not (clip-path: ellipse(0 0 at 97% 97%)) {
+      // partial fix for browsers not supporting clip-path
+      display: none;
+    }
+
+    // full page overlay for medium sized dimension viewports
+    @media only screen and (max-width: $media-medium) {
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      border-radius: 0;
+      max-width: none;
+      clip-path: ellipse(0 0 at 90% 90%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: $padding-medium;
+      overflow-y: scroll;
+
+      @supports not (clip-path: ellipse(0 0 at 97% 97%)) {
+        // partial fix for browsers not supporting clip-path
+        display: none;
+      }
+    }
+
+    // Scrollable and centered content
+    @media only screen and (max-width: $media-minimum) {
+      padding: $padding-medium $padding-small;
+      align-items: center;
+      justify-content: center;
+      display: block;
+      overflow-y: scroll;
+
+      @supports not (clip-path: ellipse(0 0 at 97% 97%)) {
+        // partial fix for browsers not supporting clip-path
+        display: none;
+      }
+    }
+
+    // Info message content container
+    &-content {
+      text-align: center;
+    }
+  }
+
+  /*
+    btn to trigger info message, btn holds:
+    - hidden input checkbox to trigger visibility for the info message based on :checked
+    - label to trigger the checkbox
+    - svg icon
+  */
+
+  // btn container
+  & .info__btn {
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+
+    // Add a background to increase visibility on smaller screens
+    @media only screen and (max-width: $media-medium) {
+      width: 50px;
+      height: 50px;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 140%;
+        height: 100%;
+        background: $color-shadow;
+        border-radius: 50px 0 0 50px;
+      }
+    }
+
+    // Hide the checkbox
+    &-checkbox {
+      display: none;
+
+      // Checked styles only set when hover is not available
+      // Change the info message sibling's styles when checked
+      &:checked ~ .info__message {
+        @media (hover: none) {
+          clip-path: ellipse(140rem 140rem at 97% 97%);
+
+          @media only screen and (max-width: $media-medium) {
+            display: flex;
+          }
+
+          @media only screen and (max-width: 380px) {
+            display: block;
+          }
+        }
+      }
+
+      // Change the sibling svg's path when checked
+      &:checked ~ .info__btn-label path {
+        @media (hover: none) {
+          transform: rotateZ(360deg);
+          fill: var(--color-white);
+          transition: all 0.4s ease-out;
+        }
+      }
+    }
+
+    // Set checkbox's label to match the btn size
+    &-label {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+
+      // Hover styles only set when hover is available
+      @media (hover: hover) {
+        // Change the sibling svg's path when hovered
+        &:hover path {
+          transform: rotateZ(360deg);
+          fill: var(--color-white);
+          transition: all 0.4s ease-out;
+        }
+        // Change the info message sibling's styles when hovered
+        &:hover ~ .info__message {
+          clip-path: ellipse(140rem 140rem at 97% 97%);
+          @supports not (clip-path: ellipse(0 0 at 97% 97%)) {
+            display: block;
+          }
+        }
+      }
+    }
+
+    // SVG icon
+    &-icon {
+      cursor: pointer;
+      position: relative;
+      z-index: 10;
+
+      & path {
+        fill: var(--color-white-colored);
+        transition: all 0.4s ease-out;
+        transition-delay: 0.3s;
+        transform-origin: center;
+      }
+    }
+  }
+
+  /*
+   Info message content
+  */
+
+  & .info__heading-primary {
+    color: var(--color-primary-light-2);
+  }
+  & .info__heading-sub {
+    font-weight: 400;
+    & strong {
+      font-weight: 700;
+    }
+  }
+
+  & .info__heading-features {
+    color: var(--color-quad);
+  }
+  & .info__features {
+    list-style: none;
+
+    & .feature:not(:last-of-type) {
+      margin-bottom: $margin-tiny;
+    }
+  }
+}

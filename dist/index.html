@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap&text=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!?(.');'"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap&text=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!?(.');"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles/style.min.css">
+  <script src="assets/scripts/index.min.js" defer></script>
+  <title>Document</title>
+</head>
+
+<body ondragstart="return false">
+  <div class="contact">
+    <a class="contact__link" href="mailto:info@vonsa.nl">
+      <svg class="contact__icon" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24">
+        <path d="M20,2H4C2.9,2,2.01,2.9,2.01,4L2,22l4-4h14c1.1,0,2-0.9,2-2V4C22,2.9,21.1,2,20,2z M6,9h12v2H6V9z M14,14H6v-2h8V14z M18,8
+    H6V6h12V8z" />
+      </svg>
+    </a>
+
+  </div>
+  <div class="background">
+    <div class="background__shape-top"></div>
+    <div class="background__shape-bottom"></div>
+  </div>
+
+  <div class="page-container">
+    <section class="section info">
+
+      <div class="info__btn">
+        <input type="checkbox" name="info__btn-checkbox" class="info__btn-checkbox" id="info__btn-checkbox">
+        <label class="info__btn-label" for="info__btn-checkbox">
+          <svg class="info__btn-icon" width=" 72px" height="72px" viewBox="0 0 24 24">
+            <path fill="black" d="M12,2C6.48,2,2,6.48,2,12c0,5.52,4.48,10,10,10c5.52,0,10-4.48,10-10C22,6.48,17.52,2,12,2z M13,17h-2v-6h2V17z M13,9h-2V7
+      h2V9z" />
+          </svg>
+        </label>
+        <div class="info__message">
+          <div class="info__message-content">
+            <h1 class="heading--primary info__heading-primary margin--medium--bottom">transform-it.js</h1>
+
+            <h2 class="heading--tertiary info__heading-sub margin--medium--bottom">Javascript library to
+              <strong>rotate & translate
+                anything</strong> on your page,
+              <strong>easily!</strong></h2>
+
+            <h3 class="heading--secondary info__heading-features margin--small--bottom">Core features</h3>
+            <ul class="info__features">
+              <li class="feature"><span class="feature-icon">+ </span>Works for mouse and touch devices</li>
+              <li class="feature"><span class="feature-icon">+ </span>Very easy to implement</li>
+              <li class="feature"><span class="feature-icon">+ </span>..kb</li>
+              <li class="feature"><span class="feature-icon">+ </span>60fps with minimalization of executions</li>
+              <li class="feature"><span class="feature-icon">+ </span>Natural easing out of the box </li>
+              <li class="feature"><span class="feature-icon">+ </span>Create kickass rotations</li>
+            </ul>
+            <h4 class="heading--quad weight--light margin--medium--top margin--tiny--bottom">Implementation is as
+              easy
+              as</h4>
+            <p>app.create('.classSelector');</p>
+          </div>
+        </div>
+      </div>
+
+
+
+    </section>
+
+    <section class="section main">
+      <div class="phone__wrapper">
+        <div class="phone first">
+          <div class="phone__side front"></div>
+          <div class="phone__left-right left"></div>
+          <div class="phone__left-right right"></div>
+          <div class="phone__top-bottom top"></div>
+          <div class="phone__top-bottom bottom"></div>
+          <div class="phone__middle vertical"></div>
+          <div class="phone__middle horizontal"></div>
+          <div class="phone__side back"></div>
+          <div class="phone__message">
+            <div class="phone__message-overflow">
+              <div class="phone__message-shadow"></div>
+            </div>
+            <div class="phone__message-container">
+              <h2 class="heading--secondary">Hey,<br>badass</h2>
+            </div>
+          </div>
+        </div>
+        <div class="phone__shadow"></div>
+      </div>
+
+    </section>
+
+    <section class="section config">
+      <div class="title--animated">
+        <h2 class="title--animated-h2 heading--primary">
+          <span class="letter first-word">L</span><span class="letter first-word">e</span><span
+            class="letter first-word">t</span><span class="letter first-word">'</span><span
+            class="letter first-word">s</span>
+          <br>
+          <span class="letter second-word">c</span><span class="letter second-word">r</span><span
+            class="letter second-word">e</span><span class="letter second-word">a</span><span
+            class="letter second-word">t</span><span class="letter second-word">e</span><span
+            class="letter second-word">!</span>
+        </h2>
+      </div>
+
+      <div class="config__btns">
+        <div class="config__btns-checkbox-container btn">
+          <input type="checkbox" name="rotateX" id="rotateX">
+          <label for="rotateX">Rotate X</label>
+        </div>
+        <div class="config__btns-checkbox-container btn">
+          <input type="checkbox" name="rotateY" id="rotateY">
+          <label for="rotateY">Rotate Y</label>
+        </div>
+        <div class="config__btns-checkbox-container btn">
+          <input type="checkbox" name="rotateZ" id="rotateZ">
+          <label for="rotateZ">Rotate Z</label>
+        </div>
+        <div class="config__btns-checkbox-container btn">
+          <input type="checkbox" name="translateX" id="translateX">
+          <label for="translateX">Translate X</label>
+        </div>
+        <div class="config__btns-checkbox-container btn">
+          <input type="checkbox" name="translateY" id="translateY">
+          <label for="translateY">Translate Y</label>
+        </div>
+        <div class="config__btns-checkbox-container btn">
+          <input type="checkbox" name="translateZ" id="translateZ">
+          <label for="translateZ">Translate Z</label>
+        </div>
+
+        <div class="config__description">
+          <h4 class="description__content heading--quad margin--small--top">Click a button to activate or deactivate
+            a transform.<br>
+            <strong>Drag anywhere to transform the mobile phone!</strong></h4>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <footer class="footer">
+    <ul class="footer__links">
+      <li class="footer__link"><a href="#"><svg class="footer__link-icon" x="0px" y="0px" width="24px" height="24px"
+            viewBox="0 0 24 24">
+            <path d="M19,12v7H5v-7H3v7c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2v-7H19z M13,12.67l2.59-2.58L17,11.5l-5,5l-5-5l1.41-1.41L11,12.67V3
+       h2V12.67z" />
+          </svg> Download page</a></li>
+      <li class="footer__link"><a href="#"><svg class="footer__link-icon" x="0px" y="0px" width="24px" height="24px"
+            viewBox="0 0 24 24">
+            <path d="M19,12v7H5v-7H3v7c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2v-7H19z M13,12.67l2.59-2.58L17,11.5l-5,5l-5-5l1.41-1.41L11,12.67V3
+       h2V12.67z" />
+          </svg> Download library</a></li>
+    </ul>
+  </footer>
+
+</body>
+
+</html>

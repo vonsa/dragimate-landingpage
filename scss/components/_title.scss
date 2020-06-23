@@ -1,0 +1,48 @@
+/*
+  Animated title
+  Javascript is used to copy letter's textContent to letter::before
+*/
+
+.title--animated {
+  padding: $padding-small;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @media only screen and (max-width: $media-medium) {
+    margin: $margin-small 0;
+  }
+
+  &-h2 {
+    padding: $padding-tiny;
+    display: block;
+    position: relative;
+    @include unselectable;
+  }
+
+  & .letter {
+    position: relative;
+    display: inline-block;
+    animation: txt 1s infinite alternate;
+
+    @for $i from 1 through 12 {
+      &:nth-child(#{$i}) {
+        animation-delay: #{$i * 0.12}s;
+      }
+      &:nth-child(#{$i})::before {
+        animation-delay: #{$i * 0.12}s;
+      }
+    }
+
+    &::before {
+      content: attr(data-letter); // Set dynamically by JavaScript
+      color: transparent;
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      transform: rotateY(45deg) rotateX(45deg);
+      animation: txtShadow 1s infinite alternate;
+    }
+  }
+}

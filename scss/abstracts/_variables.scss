@@ -1,0 +1,55 @@
+/* CSS & SCSS Variables */
+
+/*
+  CSS Variables
+  -------------
+*/
+
+:root {
+  // Colors - CSS var
+  --color-primary: #007eff;
+  --color-primary-light: #31a1ff;
+  --color-primary-light-2: #86c8ff;
+  --color-primary-dark: #1667fd;
+  --color-secondary: #5100e5;
+  --color-tertiary: #ff8a00;
+  --color-quad: #ffea00;
+  --color-quin: #fd163c;
+
+  // Semi colored
+  --color-white-colored: #d9eeff;
+
+  // Colors Greyscale - CSS var
+  --color-white: #fff;
+  --color-black: #000;
+
+  // Colors FONTS - CSS var
+  --color-font-primary: #0c2946;
+}
+
+/*
+  SCSS Variables 
+  -------------
+*/
+
+// Colors - SCSS
+$color-shadow: #0a3665;
+$color-black: #000;
+
+// Margins
+$margin-tiny: 1rem;
+$margin-small: 2rem;
+$margin-medium: 4rem;
+$margin-large: 8rem;
+
+// Padding
+$padding-tiny: 1rem;
+$padding-small: 2rem;
+$padding-medium: 4rem;
+$padding-large: 8rem;
+$padding-giga: 12rem;
+
+// Media queries
+$media-minimum: 380px;
+$media-tiny: 450px;
+$media-medium: 1200px;

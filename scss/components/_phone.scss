@@ -1,0 +1,175 @@
+/*
+  3D phone
+  ---------
+  2d rectangles transformed in 3d space with applied background images
+*/
+
+// wrapper for subtle phone animation
+.phone__wrapper {
+  position: relative;
+  transform-style: preserve-3d;
+  animation: phone 0.35s ease-in-out infinite alternate;
+}
+
+// Wraps all child elements to create the phone
+// Transforms are applied to the .phone element by Javascript
+.phone {
+  position: relative;
+  width: 200px;
+  height: 405px;
+  transform-style: preserve-3d;
+  transform: rotateX(15deg);
+  z-index: 2;
+  animation: phoneIntro 2.4s cubic-bezier(0.29, 0.01, 0.21, 1.03) backwards 0.2s;
+  transform: rotateY(25deg) rotateX(25deg);
+
+  &__side {
+    // Front & back side of the phone
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    border-radius: 38px;
+
+    &.front {
+      background-color: #f3f3f3;
+      background-image: url('../img/front.jpg');
+    }
+
+    &.back {
+      background-color: $color-black;
+      background-image: url('../img/back.jpg');
+      transform: translateZ(-10px) rotateY(180deg);
+    }
+  }
+
+  // Left & right sides of the phone
+  &__left-right {
+    height: 341px;
+    width: 10px;
+    position: absolute;
+    background-image: url('../img/sides2.jpg');
+    background-size: cover;
+    top: 34px;
+    transform: translateZ(-5px) rotateY(90deg);
+
+    &.left {
+      left: -5px;
+    }
+    &.right {
+      right: -5px;
+    }
+  }
+
+  // Top & bottom sides of the phone
+  &__top-bottom {
+    width: 140px;
+    height: 10px;
+    position: absolute;
+    background-image: url('../img/sides.jpg');
+    background-size: cover;
+    left: 30px;
+    transform: translateZ(-5px) rotateX(90deg);
+
+    &.top {
+      top: -5px;
+    }
+    &.bottom {
+      bottom: -5px;
+    }
+  }
+
+  // Elements inside of the phone to prevent the inside being see through
+  &__middle {
+    background-color: $color-black;
+    position: absolute;
+    z-index: 1;
+    &.vertical {
+      width: 10px;
+      height: 405px;
+      left: 50%;
+      top: 0;
+      transform: translateZ(-5px) rotateY(90deg);
+    }
+    &.horizontal {
+      width: 200px;
+      height: 10px;
+      left: 0;
+      top: 50%;
+      transform: translateZ(-5px) rotateX(90deg);
+    }
+  }
+
+  // Shadow under the phone
+  &__shadow {
+    position: absolute;
+    bottom: 6rem;
+    width: 100%;
+    height: 4rem;
+    box-shadow: -3rem 13rem 6rem 0rem rgba($color-shadow, 0.24);
+    z-index: 1;
+
+    @media only screen and (max-width: $media-medium) {
+      display: none;
+    }
+  }
+
+  // Phone message box & message shadow container
+  &__message {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-style: preserve-3d;
+    @include unselectable;
+
+    // Pseudoish element to prevent the shadow overflowing to outside of the phone
+    &-overflow {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      border-radius: 38px;
+    }
+
+    // Phone message box's shadow
+    &-shadow {
+      width: 16rem;
+      height: 14rem;
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      border-radius: 0.8rem 1.2rem;
+      color: var(--color-white);
+      box-shadow: -4rem 15rem 4rem -1rem rgba($color-shadow, 0.24);
+      z-index: 2;
+
+      // Animation
+      animation: mobileMessageShadow 3s ease-in-out infinite alternate;
+    }
+
+    // Phone message box
+    &-container {
+      padding: $padding-tiny;
+      background-color: $color-black;
+      color: var(--color-white);
+      width: 16rem;
+      position: absolute;
+      top: 66%;
+      left: 50%;
+      border-radius: 0.8rem 1.2rem;
+      text-align: center;
+      transition: background-color 0.3s ease-in-out;
+
+      // Animation get's replaced after 1s by "mobileMessage" using javascript
+      animation: messageIntro 1s ease-in-out;
+
+      &:hover {
+        background-color: var(--color-primary);
+      }
+    }
+  }
+}

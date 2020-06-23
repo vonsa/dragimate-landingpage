@@ -1,0 +1,71 @@
+/*
+  Main button style
+*/
+
+.btn {
+  color: var(--color-white);
+  background: linear-gradient(
+    to bottom right,
+    var(--color-primary-dark),
+    var(--color-primary-light)
+  );
+  border-radius: 3rem;
+  border: none;
+  position: relative;
+  overflow: hidden; // hides the ::before element
+  transition: all 0.3s;
+  box-shadow: 0px 0.4rem 1rem rgba($color-shadow, 0.4);
+  text-align: center;
+  @include unselectable;
+
+  // hidden element which fills the btn area on hover
+  &::before {
+    content: '';
+    position: absolute;
+    left: -2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: var(--color-secondary);
+    transition: transform 0.3s cubic-bezier(0.6, 0.27, 0.31, 1.08),
+      background-color 0.8s;
+  }
+  // btn:hover = animate the hidden element
+  &:hover::before {
+    transform: scale(18);
+    background-color: var(--color-quin);
+  }
+  // btn:hover = gives impression of moving up
+  &:hover {
+    box-shadow: 0 0.8rem 1.2rem rgba($color-shadow, 0.25);
+    transform: translateY(-1.5px);
+  }
+  &:active {
+    transform: scale(1.06);
+  }
+
+  /* 
+    Optional: Checkbox area 
+    ----------------------------
+  */
+
+  input {
+    display: none;
+
+    &:checked ~ label {
+      background-color: var(--color-tertiary);
+    }
+  }
+  // label takes up 100% of parent dimensions, and triggers the checkbox on click
+  label {
+    display: block;
+    position: relative;
+    padding: 1.4rem 2rem;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+}

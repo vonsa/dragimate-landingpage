@@ -1,0 +1,61 @@
+.footer {
+  position: relative;
+  width: 50rem;
+  background-color: $color-shadow;
+  max-width: 90vw;
+  margin: 0 auto;
+  padding: 1rem 1.4rem;
+  border-radius: 5rem 5rem 0 0;
+  align-self: flex-end;
+
+  @media only screen and (max-width: $media-minimum) {
+    max-width: 100%;
+    border-radius: 0;
+    background: linear-gradient(to bottom, transparent 0%, $color-shadow 100%);
+  }
+
+  &__links {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    flex-wrap: wrap;
+
+    @media only screen and (max-width: $media-minimum) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__link {
+    &:not(:last-of-type) {
+      margin-right: $margin-small;
+
+      @media only screen and (max-width: $media-minimum) {
+        margin-right: 0;
+      }
+    }
+
+    & a:link,
+    & a:visited {
+      opacity: 0.94;
+      color: var(--color-white-colored);
+
+      &:hover {
+        opacity: 1;
+        color: var(--color-white);
+      }
+
+      @media only screen and (max-width: $media-medium) {
+        opacity: 1;
+      }
+    }
+    &-icon {
+      fill: var(--color-white-colored);
+
+      @media only screen and (max-width: $media-minimum) {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}

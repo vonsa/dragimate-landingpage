@@ -1,0 +1,69 @@
+.margin {
+  /*
+    Creates margin utility classes
+  */
+
+  &--tiny {
+    margin: $margin-tiny;
+    &--bottom {
+      margin-bottom: $margin-tiny;
+    }
+    &--top {
+      margin-top: $margin-tiny;
+    }
+    &--left {
+      margin-left: $margin-tiny;
+    }
+    &--right {
+      margin-right: $margin-tiny;
+    }
+  }
+
+  &--small {
+    margin: $margin-small;
+    &--bottom {
+      margin-bottom: $margin-small;
+    }
+    &--top {
+      margin-top: $margin-small;
+    }
+    &--left {
+      margin-left: $margin-small;
+    }
+    &--right {
+      margin-right: $margin-small;
+    }
+  }
+
+  &--medium {
+    margin: $margin-medium;
+    &--bottom {
+      margin-bottom: $margin-medium;
+    }
+    &--top {
+      margin-top: $margin-medium;
+    }
+    &--left {
+      margin-left: $margin-medium;
+    }
+    &--right {
+      margin-right: $margin-medium;
+    }
+  }
+
+  &--large {
+    margin: $margin-large;
+    &--bottom {
+      margin-bottom: $margin-large;
+    }
+    &--top {
+      margin-top: $margin-large;
+    }
+    &--left {
+      margin-left: $margin-large;
+    }
+    &--right {
+      margin-right: $margin-large;
+    }
+  }
+}
