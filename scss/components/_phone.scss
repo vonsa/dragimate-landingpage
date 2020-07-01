@@ -4,6 +4,10 @@
   2d rectangles transformed in 3d space with applied background images
 */
 
+.section.main {
+  perspective: 1200px;
+}
+
 // wrapper for subtle phone animation
 .phone__wrapper {
   position: relative;
@@ -133,6 +137,10 @@
       left: 0;
       overflow: hidden;
       border-radius: 38px;
+
+      @media (hover: none) {
+        display: none;
+      }
     }
 
     // Phone message box's shadow
@@ -149,6 +157,10 @@
 
       // Animation
       animation: mobileMessageShadow 3s ease-in-out infinite alternate;
+
+      @media (hover: none) {
+        display: none;
+      }
     }
 
     // Phone message box

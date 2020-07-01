@@ -35,84 +35,92 @@ const aniObject = [
  */
 let app;
 let newElement;
-// Timeout used for demo purposes
-setTimeout((e) => {
-  app = new Elements();
-  newElement = app.create('.first', aniObject);
-  demo();
-}, 2601);
 
-// letters
-const spans = document.querySelectorAll('.title--animated span');
+// Demo not available on mobile devices
+if (window.innerWidth > 800) {
+  // Timeout used for demo purposes
+  setTimeout((e) => {
+    app = new Elements();
+    newElement = app.create('.first', aniObject);
+    demo();
+  }, 2601);
 
-// buttons
-const rX = document.getElementById('rotateX');
-const rY = document.getElementById('rotateY');
-const rZ = document.getElementById('rotateZ');
-const tX = document.getElementById('translateX');
-const tY = document.getElementById('translateY');
-const tZ = document.getElementById('translateZ');
+  // letters
+  const spans = document.querySelectorAll('.title--animated span');
 
-// phone message
-const message = document.querySelector('.phone__message-container');
+  // buttons
+  const rX = document.getElementById('rotateX');
+  const rY = document.getElementById('rotateY');
+  const rZ = document.getElementById('rotateZ');
+  const tX = document.getElementById('translateX');
+  const tY = document.getElementById('translateY');
+  const tZ = document.getElementById('translateZ');
 
-function initialise() {
-  spans.forEach((el) => {
-    el.setAttribute('data-letter', el.textContent);
-  });
-}
+  // phone message
+  const message = document.querySelector('.phone__message-container');
 
-initialise();
-
-function demo() {
-  for (const transform in newElement.transforms) {
-    newElement.transforms[transform].active = false;
+  function initialise() {
+    spans.forEach((el) => {
+      el.setAttribute('data-letter', el.textContent);
+    });
   }
 
-  rX.addEventListener('click', (e) => {
-    newElement.transforms['rotateX'].active = newElement.transforms['rotateX']
-      .active
-      ? false
-      : true;
-  });
-  rY.addEventListener('click', (e) => {
-    newElement.transforms['rotateY'].active = newElement.transforms['rotateY']
-      .active
-      ? false
-      : true;
-  });
-  rZ.addEventListener('click', (e) => {
-    newElement.transforms['rotateZ'].active = newElement.transforms['rotateZ']
-      .active
-      ? false
-      : true;
-  });
-  tX.addEventListener('click', (e) => {
-    newElement.transforms['translateX'].active = newElement.transforms[
-      'translateX'
-    ].active
-      ? false
-      : true;
-  });
-  tY.addEventListener('click', (e) => {
-    newElement.transforms['translateY'].active = newElement.transforms[
-      'translateY'
-    ].active
-      ? false
-      : true;
-  });
-  tZ.addEventListener('click', (e) => {
-    newElement.transforms['translateZ'].active = newElement.transforms[
-      'translateZ'
-    ].active
-      ? false
-      : true;
-  });
+  initialise();
 
-  rX.click();
-  rY.click();
+  function demo() {
+    for (const transform in newElement.transforms) {
+      newElement.transforms[transform].active = false;
+    }
+
+    rX.addEventListener('click', (e) => {
+      newElement.transforms['rotateX'].active = newElement.transforms['rotateX']
+        .active
+        ? false
+        : true;
+    });
+    rY.addEventListener('click', (e) => {
+      newElement.transforms['rotateY'].active = newElement.transforms['rotateY']
+        .active
+        ? false
+        : true;
+    });
+    rZ.addEventListener('click', (e) => {
+      newElement.transforms['rotateZ'].active = newElement.transforms['rotateZ']
+        .active
+        ? false
+        : true;
+    });
+    tX.addEventListener('click', (e) => {
+      newElement.transforms['translateX'].active = newElement.transforms[
+        'translateX'
+      ].active
+        ? false
+        : true;
+    });
+    tY.addEventListener('click', (e) => {
+      newElement.transforms['translateY'].active = newElement.transforms[
+        'translateY'
+      ].active
+        ? false
+        : true;
+    });
+    tZ.addEventListener('click', (e) => {
+      newElement.transforms['translateZ'].active = newElement.transforms[
+        'translateZ'
+      ].active
+        ? false
+        : true;
+    });
+
+    rX.click();
+    rY.click();
+  }
+
+  setTimeout((e) => {
+    message.style.animation = 'mobileMessage 3s ease-in-out infinite alternate';
+  }, 1000);
+} else {
+  // Fallback for mobile devices
+  const config = document.querySelector('.section.config');
+  config.innerHTML = `<h1 class="heading--secondary demo__unavailable">This demo is not available on mobile devices. Please use a different device.</h1>`;
 }
-
-setTimeout((e) => {
-  message.style.animation = 'mobileMessage 3s ease-in-out infinite alternate';
-}, 1000);

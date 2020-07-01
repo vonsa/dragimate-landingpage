@@ -43,6 +43,10 @@
       bottom: 0;
       transform: rotateY(45deg) rotateX(45deg);
       animation: txtShadow 1s infinite alternate;
+
+      @media (hover: none) {
+        display: none;
+      }
     }
   }
 }
