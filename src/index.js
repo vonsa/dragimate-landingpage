@@ -56,9 +56,6 @@ if (window.innerWidth > 800) {
   const tY = document.getElementById('translateY');
   const tZ = document.getElementById('translateZ');
 
-  // phone message
-  const message = document.querySelector('.phone__message-container');
-
   function initialise() {
     spans.forEach((el) => {
       el.setAttribute('data-letter', el.textContent);
@@ -115,12 +112,14 @@ if (window.innerWidth > 800) {
     rX.click();
     rY.click();
   }
-
-  setTimeout((e) => {
-    message.style.animation = 'mobileMessage 3s ease-in-out infinite alternate';
-  }, 1000);
 } else {
   // Fallback for mobile devices
   const config = document.querySelector('.section.config');
   config.innerHTML = `<h1 class="heading--secondary demo__unavailable">This demo is not available on mobile devices. Please use a different device.</h1>`;
 }
+
+setTimeout((e) => {
+  // Activate phone message animation after intro animation has concluded
+  const message = document.querySelector('.phone__message-container');
+  message.style.animation = 'mobileMessage 3s ease-in-out infinite alternate';
+}, 1000);
